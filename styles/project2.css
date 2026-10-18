@@ -1,0 +1,231 @@
+/*
+AI Disclosure
+Tools-- Gemini AI, Magic Pattern Design (for color palette).
+Purpose-- Discussed CSS layout ideas and structure for the Nutrition Tracker, especially with fonts and forms/fieldset.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root {
+    --color-dark: #594F4F;
+    --color-slate: #547980;
+    --color-teal: #45ADA8;
+    --color-mint: #9DE0AD;
+    --color-lime: #E5FCC2;
+    --card-bg: #F9FBF9;
+
+    --font-main: 'Inter', "Segoe UI", Roboto, sans-serif;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-slate);
+    color: var(--color-dark);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+main {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* ======== CARD STYLING ======== */
+header {
+    max-width: 850px;
+    margin: 0 auto 2rem auto;
+    padding: 2.5rem 2rem;
+    background-color: var(--card-bg);
+    border: 5px solid var(--color-mint);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+header h1 {
+    color: var(--color-dark);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--color-slate);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+/* ======== Navigation ======== */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--color-dark);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid var(--color-dark);
+    transition: all 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--color-teal);
+    border-color: var(--color-teal);
+    color: #FFFFFF;
+}
+
+/* ======== Image ========*/
+header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid var(--color-mint);
+    margin-top: 0.5rem;
+}
+
+/* ======== Section ======== */
+section {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--color-mint);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+    color: var(--color-dark);
+    font-size: 1.4rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--color-teal);
+    margin-bottom: 1.25rem;
+}
+
+/* ======== Lists in Sections ======== */
+section ul {
+    padding-left: 1.25rem;
+}
+
+section li {
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+}
+
+strong {
+    color: var(--color-slate);
+}
+
+/* ======== forms & inputs ======== */
+form p {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-slate);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--color-dark);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: 2px solid var(--color-teal);
+    border-color: transparent;
+}
+
+fieldset {
+    border: 2px solid var(--color-mint);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #F1F6F3;
+}
+
+legend {
+    padding: 0 8px;
+    font-weight: bold;
+    color: var(--color-slate);
+}
+
+button {
+    background-color: var(--color-teal);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover,
+button:focus {
+    background-color: var(--color-dark);
+    color: #FFFFFF;
+}
+
+/* ======== table styling ======== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #E0E8E5;
+}
+
+th {
+    background-color: var(--color-lime);
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+td {
+    color: var(--color-dark);
+}
+
+tfoot {
+    background-color: #EEF7F1;
+    font-weight: bold;
+}
+
+tfoot th, tfoot td {
+    color: var(--color-dark);
+}
+
+/* ======== footer ======== */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--color-mint);
+    font-size: 0.9rem;
+}

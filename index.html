@@ -1,149 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple nutrition tracker to monitor daily protein and calorie intake.">
+    <meta name="author" content="Amaya Cranford">
     <title>Nutrition Tracker</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
+    <!--
+    AI Disclosure
+    Tools-- Gemini AI
+    Purpose-- Learned how to apply Bootsrap classes to my existing html tags.
+    -->
+    <!-- Bootstrap v5.3.8 -->
+    <!-- LOAD BOOTSTRAP CSS - DO NOT DELETE -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- END LOADING BOOTSTRAP CSS -->
 
-    <header>
-        <h1>Daily Protein &amp; Calorie Tracker</h1>
-        <p>Track daily macronutrients and maintain a caloric deficit.</p>
-        <nav>
-            <ul>
-                <li><a href="#summary">Daily Summary</a></li>
-                <li><a href="#quick-add-section">Quick Add</a></li>
-                <li><a href="#log-form">Log Entry</a></li>
-                <li><a href="#entries">Today's Meals</a></li>
-            </ul>
-        </nav>
-        <img src="images/nutrition.png" alt="Human head silhouette with brain cutout surrounded by various fruits and vegetables." width ="500">
-    </header>
+    <!-- Custom styles - add your own CSS to this stylesheet -->
+    <link href="/style.css" rel="stylesheet">
+  </head>
+  <body>
 
-    <main>
-        <section id="summary">
-            <h2>Daily Progress Summary</h2>
-            <ul>
-                <li><strong>Calorie Goal:</strong> 2,000 kcal | <strong>Consumed:</strong> 1,450 kcal | <strong>Remaining:</strong> 550 kcal</li>
-                <li><strong>Protein Goal:</strong> 160g | <strong>Consumed:</strong> 120g | <strong>Remaining:</strong> 40g</li>
-            </ul>
-        </section>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+      <img src="images/LOGO.png" alt="Icon of phone with fork, spoon, and watch face" width="50" height="50">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#summary">Daily Summary</a>
+            <a class="nav-link" href="#quick-add-section">Quick Add</a>
+            <a class="nav-link" href="#log-form">Log Entry</a>
+            <a class="nav-link" href="#entries">Today's Meals</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <header class="text-center py-4 mb-5 border-bottom">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-3">Daily Protein &amp; Calorie Tracker</h1>
+        <p class="lead text-secondary mb-4">Track daily macronutrients and maintain a caloric deficit.</p>
+
+        <div class="mb-3">
+            <img src="images/nutrition.png" alt="Human head silhouette with brain cutout surrounded by various fruits and vegetables." class="img-fluid rounded shadow-sm" style="max-width: 350px;">
+        </div>
+    </div>
+</header>
+
+    <main class="container my-4">
+        <section id="summary" class="mb-5">
+          <h2 class="h3 mb-3">Daily Progress Summary</h2>
+          <div class="row g-3">
+
+              <!-- Calorie Tracker Card -->
+              <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                      <div class="card-body">
+                          <h3 class="card-title h5 text-primary">Calories</h3>
+                          <p class="mb-2"><strong>Goal:</strong> 2,000 kcal | <strong>Consumed:</strong> 1,450 kcal | <strong>Remaining:</strong> 550 kcal</p>
+
+                          <!-- Progress Bar Component -->
+                          <div class="progress" role="progressbar" aria-label="Calorie Progress" aria-valuenow="72.5" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar bg-primary" style="width: 72.5%">72.5%</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Protein Tracker Card -->
+              <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                      <div class="card-body">
+                          <h3 class="card-title h5 text-success">Protein</h3>
+                          <p class="mb-2"><strong>Goal:</strong> 160g | <strong>Consumed:</strong> 120g | <strong>Remaining:</strong> 40g</p>
+
+                          <!-- Progress Bar Component -->
+                          <div class="progress" role="progressbar" aria-label="Protein Progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar bg-success" style="width: 75%">75%</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </section>
 
         <section id="quick-add-section">
-            <h2>Quick Add</h2>
-            <form action="#" method="post">
-                <p>
-                    <label for="quick-add">Select a Saved Meal:</label><br>
-                    <select id="quick-add" name="quick_add">
-                        <option value="">-- Choose a Meal --</option>
-                        <option value="shake">Morning Protein Shake (250 kcal | 30g Protein)</option>
-                        <option value="salmon-bowl">Salmon Rice Bowl (620 kcal | 39g Protein)</option>
-                        <option value="yogurt">Greek Yogurt &amp; Berries (180 kcal | 20g Protein)</option>
-                    </select>
-                </p>
-                <p>
-                    <button type="submit">Log</button>
-                </p>
-            </form>
+            <section id="quick-add-section" class="card shadow-sm border-0 h-100">
+              <div class="card-body">
+                  <h2 class="card-title h4 mb-3">Quick Add</h2>
+                  <form action="#" method="post">
+                      <div class="mb-3">
+                          <label for="quick-add" class="form-label">Select a Saved Meal:</label>
+                          <select id="quick-add" name="quick_add" class="form-select">
+                              <option value="">-- Choose a Meal --</option>
+                              <option value="shake">Morning Protein Shake (250 kcal | 30g Protein)</option>
+                              <option value="salmon-bowl">Salmon Rice Bowl (620 kcal | 39g Protein)</option>
+                              <option value="yogurt">Greek Yogurt &amp; Berries (180 kcal | 20g Protein)</option>
+                          </select>
+                      </div>
+                      <button type="submit" class="btn btn-outline-primary w-100">Log Quick Meal</button>
+                  </form>
+              </div>
         </section>
 
-        <section id="log-form">
-            <h2>Log a Meal</h2>
-            <form action="#" method="post">
+        <section id="log-form" class="card shadow-sm border-0">
+    <div class="card-body">
+        <h2 class="card-title h4 mb-3">Log a Meal</h2>
+        <form action="#" method="post">
 
-                <!-- Basic Meal Details -->
-                <p>
-                    <label for="food-name">Meal Name:</label><br>
-                    <input type="text" id="food-name" name="food_name" placeholder="e.g., Salmon Rice Bowl" required>
-                </p>
-
-                <p>
-                    <label for="meal-type">Meal Category:</label><br>
-                    <select id="meal-type" name="meal_type">
+            <!-- Basic Meal Details -->
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <label for="food-name" class="form-label">Meal Name:</label>
+                    <input type="text" id="food-name" name="food_name" class="form-control" placeholder="e.g., Salmon Rice Bowl" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="meal-type" class="form-label">Meal Category:</label>
+                    <select id="meal-type" name="meal_type" class="form-select">
                         <option value="breakfast">Breakfast</option>
                         <option value="lunch">Lunch</option>
                         <option value="dinner">Dinner</option>
                         <option value="snack">Snack</option>
                     </select>
-                </p>
+                </div>
+            </div>
 
-                <p>
-                    <input type="checkbox" id="favorite-meal" name="favorite_meal" value="yes">
-                    <label for="favorite-meal">Save this meal to Favorites</label>
-                </p>
+            <div class="form-check mb-4">
+                <input type="checkbox" id="favorite-meal" name="favorite_meal" value="yes" class="form-check-input">
+                <label for="favorite-meal" class="form-check-label">Save this meal to Favorites</label>
+            </div>
 
-                <!-- Optional Ingredient Breakdown -->
-                <fieldset>
-                    <legend>Ingredients (Optional)</legend>
-                    <p>Add specific items below if building a recipe. Skip this section if logging quick totals.</p>
+            <!-- Optional Ingredient Breakdown -->
+            <fieldset class="border rounded p-3 mb-4 bg-light">
+                <legend class="float-none w-auto px-2 h6 text-secondary">Ingredients (Optional)</legend>
+                <p class="small text-muted mb-3">Add specific items below if building a recipe. Skip this section if logging quick totals.</p>
 
-                    <fieldset>
-                        <legend>Ingredient 1</legend>
-                        <p>
-                            <label for="ing-1-name">Name:</label>
-                            <input type="text" id="ing-1-name" name="ing_1_name" placeholder="e.g., Atlantic Salmon">
+                <!-- Ingredient 1 -->
+                <fieldset class="border rounded p-2 mb-3 bg-white">
+                    <legend class="float-none w-auto px-2 small fw-bold">Ingredient 1</legend>
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <label for="ing-1-name" class="form-label small">Name:</label>
+                            <input type="text" id="ing-1-name" name="ing_1_name" class="form-control form-control-sm" placeholder="e.g., Atlantic Salmon">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="ing-1-cals" class="form-label small">Calories:</label>
+                            <input type="number" id="ing-1-cals" name="ing_1_cals" min="0" class="form-control form-control-sm" placeholder="300">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="ing-1-protein" class="form-label small">Protein (g):</label>
+                            <input type="number" id="ing-1-protein" name="ing_1_protein" min="0" class="form-control form-control-sm" placeholder="34">
+                        </div>
+                    </div>
+                </fieldset>
 
-                            <label for="ing-1-cals">Calories:</label>
-                            <input type="number" id="ing-1-cals" name="ing_1_cals" min="0" placeholder="300">
+                <!-- Ingredient 2 -->
+                <fieldset class="border rounded p-2 mb-3 bg-white">
+                    <legend class="float-none w-auto px-2 small fw-bold">Ingredient 2</legend>
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <label for="ing-2-name" class="form-label small">Name:</label>
+                            <input type="text" id="ing-2-name" name="ing_2_name" class="form-control form-control-sm" placeholder="e.g., Jasmine Rice (1 cup)">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="ing-2-cals" class="form-label small">Calories:</label>
+                            <input type="number" id="ing-2-cals" name="ing_2_cals" min="0" class="form-control form-control-sm" placeholder="200">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="ing-2-protein" class="form-label small">Protein (g):</label>
+                            <input type="number" id="ing-2-protein" name="ing_2_protein" min="0" class="form-control form-control-sm" placeholder="4">
+                        </div>
+                    </div>
+                </fieldset>
 
-                            <label for="ing-1-protein">Protein (g):</label>
-                            <input type="number" id="ing-1-protein" name="ing_1_protein" min="0" placeholder="34">
-                        </p>
-                    </fieldset>
+                <button type="button" class="btn btn-sm btn-secondary mb-3">+ Add Another Ingredient</button>
 
-                    <fieldset>
-                        <legend>Ingredient 2</legend>
-                        <p>
-                            <label for="ing-2-name">Name:</label>
-                            <input type="text" id="ing-2-name" name="ing_2_name" placeholder="e.g., Jasmine Rice (1 cup)">
-
-                            <label for="ing-2-cals">Calories:</label>
-                            <input type="number" id="ing-2-cals" name="ing_2_cals" min="0" placeholder="200">
-
-                            <label for="ing-2-protein">Protein (g):</label>
-                            <input type="number" id="ing-2-protein" name="ing_2_protein" min="0" placeholder="4">
-                        </p>
-                    </fieldset>
-
-                    <p>
-                        <button type="button">+ Add Another Ingredient</button>
-                    </p>
-
-                    <p><strong>Ingredients Included:</strong></p>
-                    <ul>
+                <div class="mt-2">
+                    <p class="small fw-bold mb-1">Ingredients Included:</p>
+                    <ul class="small text-muted mb-0">
                         <li>Atlantic Salmon — 300 kcal | 34g Protein</li>
                         <li>Jasmine Rice (1 cup) — 200 kcal | 4g Protein</li>
                     </ul>
-                </fieldset>
+                </div>
+            </fieldset>
 
-                <!-- Editable Totals -->
-                <fieldset>
-                    <legend>Meal Totals</legend>
+            <!-- Editable Totals -->
+            <fieldset class="border rounded p-3 mb-3 bg-light">
+                <legend class="float-none w-auto px-2 h6 text-secondary">Meal Totals</legend>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="calories" class="form-label">Total Calories (kcal):</label>
+                        <input type="number" id="calories" name="calories" min="0" class="form-control" placeholder="e.g., 500" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="protein" class="form-label">Total Protein (grams):</label>
+                        <input type="number" id="protein" name="protein" min="0" class="form-control" placeholder="e.g., 38" required>
+                    </div>
+                </div>
+            </fieldset>
 
-                    <p>
-                        <label for="calories">Total Calories (kcal):</label><br>
-                        <input type="number" id="calories" name="calories" min="0" placeholder="e.g., 500" required>
-                    </p>
+            <button type="submit" class="btn btn-primary btn-lg w-100 mt-2">Log Meal</button>
+        </form>
+    </div>
+</section>
 
-                    <p>
-                        <label for="protein">Total Protein (grams):</label><br>
-                        <input type="number" id="protein" name="protein" min="0" placeholder="e.g., 38" required>
-                    </p>
-                </fieldset>
-
-                <p>
-                    <button type="submit">Log Meal</button>
-                </p>
-
-            </form>
-        </section>
-
-        <section id="entries">
-            <h2>Today's Logged Items</h2>
-            <table>
-                <thead>
+<section id="entries" class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+        <h2 class="card-title h4 mb-3">Today's Logged Items</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle mb-0">
+                <thead class="table-dark">
                     <tr>
                         <th scope="col">Category</th>
                         <th scope="col">Food Item</th>
@@ -171,21 +241,28 @@
                         <td>20</td>
                     </tr>
                 </tbody>
-                <tfoot>
+                <tfoot class="table-group-divider">
                     <tr>
                         <th scope="row" colspan="2">Total Consumed</th>
-                        <td>1,150</td>
-                        <td>110</td>
+                        <td><strong>1,150</strong></td>
+                        <td><strong>110</strong></td>
                     </tr>
                 </tfoot>
             </table>
-        </section>
+        </div>
+    </div>
+</section>
     </main>
 
-    <footer>
-        <p>Nutrition Tracker Web App - Amaya Cranford</p>
-    </footer>
+  <footer class="text-center py-4 text-secondary border-top mt-5">
+    <div class="container">
+        <p class="mb-0">Nutrition Tracker Web App &mdash; Amaya Cranford</p>
+    </div>
+  </footer>
 
-</body>
+<!-- LOAD BOOTSTRAP JAVASCRIPT - DO NOT DELETE -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<!-- END LOADING BOOTSTRAP JAVASCRIPT -->
+
+  </body>
 </html>
-<!-- test commit -->
