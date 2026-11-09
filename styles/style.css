@@ -27,6 +27,7 @@ body {
     color: var(--color-dark);
     line-height: 1.6;
     padding: 2rem 1rem;
+    padding-top: 80px;
 }
 
 
@@ -92,7 +93,6 @@ section {
     border-radius: 12px;
     padding: 1.75rem;
     margin-bottom: 1.5rem;
-    border: 5px solid var(--color-mint);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -213,23 +213,27 @@ tfoot th, tfoot td {
 }
 
 /* ======== color overrides ======== */
-.card {
-    background-color: var(--card-bg) !important;
-    border: 3px solid var(--color-mint) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+.table thead th {
+    background-color: var(--color-lime) !important;
+    color: var(--color-dark) !important;
+    font-weight: 700;
 }
 
-.btn-primary {
-    background-color: var(--color-teal) !important;
-    border-color: var(--color-teal) !important;
-    color: #FFFFFF !important;
+.table tbody tr {
+    background-color: #FFFFFF !important;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: var(--color-dark) !important;
-    border-color: var(--color-dark) !important;
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #F4F8F6 !important;
+    color: var(--color-dark) !important;
+}
+
+.table tfoot,
+.table tfoot th,
+.table tfoot td {
+    background-color: #EEF7F1 !important;
+    color: var(--color-dark) !important;
+    font-weight: bold;
 }
 
 /* ======== footer ======== */
