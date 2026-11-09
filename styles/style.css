@@ -243,3 +243,56 @@ footer {
     color: var(--color-mint);
     font-size: 0.9rem;
 }
+
+/* ======== MOBILE RESPONSIVE STYLES (Screens 768px and down) ======== */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+        padding-top: 60px;
+    }
+
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        padding: 1.25rem 1rem;
+    }
+
+    /* Make navigation buttons stack or space out nicely on mobile */
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Make form buttons full width for easier thumb tapping */
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Prevent tables from overflowing small screens */
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
